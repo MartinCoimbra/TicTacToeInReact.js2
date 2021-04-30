@@ -47,7 +47,7 @@ export function Home() {
 											asignarTurno("X");
 											desaparecerLogin();
 											aparecerTicTack();
-											<TicTac icono={turno} estado={aparecerTic} />;
+											<TicTac estado={aparecerTic} />;
 										}
 									}}>
 									X
@@ -65,7 +65,7 @@ export function Home() {
 									O
 								</button>
 							</div>
-							<TicTac estado={aparecerTic} />
+							<TicTac icono={turno} estado={aparecerTic} />
 						</div>
 					</div>
 				</div>

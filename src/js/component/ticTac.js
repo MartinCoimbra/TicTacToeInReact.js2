@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 
 const TicTac = props => {
 	const [icono, useIcono] = useState("ㅤ");
-	const cambioIcono = () => {
-		useIcono("X");
-	};
+
 	return (
 		/* Aca hacemos un cambio de d-none a d-block */
 		<div className={"col-10 contenedorChico p-3 " + props.estado}>
