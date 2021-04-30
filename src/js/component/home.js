@@ -14,12 +14,15 @@ export function Home() {
 
 	return (
 		<div className="container">
-			<div className={"container text-white mt-5 " + desaparecer}>
+			<div className="container text-white mt-3 ">
 				<div className="row justify-content-center text-center">
 					<div className="col-8 contenedorCentro my-5 p-5">
 						<h1>TicTacToe in React.js</h1>
 						<div className="row justify-content-center">
-							<div className="col-10 contenedorChico p-3">
+							<div
+								className={
+									"col-10 contenedorChico p-3 " + desaparecer
+								}>
 								<p>¿Como se llaman?</p>
 								{/* formularios */}
 								<div className="d-flex justify-content-center">
@@ -54,11 +57,11 @@ export function Home() {
 									O
 								</button>
 							</div>
+							<TicTac estado={aparecerTic} />
 						</div>
 					</div>
 				</div>
 			</div>
-			<TicTac estado={aparecerTic} />
 		</div>
 	);
 }
