@@ -17,6 +17,22 @@ export function Home() {
 		setTurno(XO);
 	};
 
+	const [tablero, setTablero] = useState([
+		["ㅤ", "ㅤ", "ㅤ"],
+		["ㅤ", "ㅤ", "ㅤ"],
+		["ㅤ", "ㅤ", "ㅤ"]
+	]);
+
+	const alternarTurno = () => {
+		if (turno === "X") {
+			setTurno("O");
+		} else if (turno === "O") {
+			setTurno("X");
+		}
+	};
+
+	console.log(tablero);
+
 	return (
 		<div className="container">
 			<div className="container text-white mt-3 ">
@@ -47,7 +63,7 @@ export function Home() {
 											asignarTurno("X");
 											desaparecerLogin();
 											aparecerTicTack();
-											<TicTac estado={aparecerTic} />;
+											//<TicTac estado={aparecerTic} />;
 										}
 									}}>
 									X
@@ -59,13 +75,19 @@ export function Home() {
 											asignarTurno("O");
 											desaparecerLogin();
 											aparecerTicTack();
-											<TicTac estado={aparecerTic} />;
+											//<TicTac estado={aparecerTic} />;
 										}
 									}}>
 									O
 								</button>
 							</div>
-							<TicTac icono={turno} estado={aparecerTic} />
+							<TicTac
+								tablero={tablero}
+								setTablero={setTablero}
+								alternarTurno={alternarTurno}
+								turnoActual={turno}
+								estado={aparecerTic}
+							/>
 						</div>
 					</div>
 				</div>
