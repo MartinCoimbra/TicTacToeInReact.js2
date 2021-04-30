@@ -12,12 +12,18 @@ export function Home() {
 		setAparecerTic("d-block");
 	};
 
+	const [turno, setTurno] = useState("");
+	const asignarTurno = XO => {
+		setTurno(XO);
+	};
+
 	return (
 		<div className="container">
 			<div className="container text-white mt-3 ">
 				<div className="row justify-content-center text-center">
 					<div className="col-8 contenedorCentro my-5 p-5">
 						<h1>TicTacToe in React.js</h1>
+						<h2>Es turno de {turno}</h2>
 						<div className="row justify-content-center">
 							<div
 								className={
@@ -38,9 +44,10 @@ export function Home() {
 									className="btnTicTac ml-3 mr-2 my-3 text-warning"
 									onClick={() => {
 										{
+											asignarTurno("X");
 											desaparecerLogin();
 											aparecerTicTack();
-											<TicTac estado={aparecerTic} />;
+											<TicTac icono={turno} estado={aparecerTic} />;
 										}
 									}}>
 									X
@@ -49,6 +56,7 @@ export function Home() {
 									className="btnTicTac m my-3 text-primary"
 									onClick={() => {
 										{
+											asignarTurno("O");
 											desaparecerLogin();
 											aparecerTicTack();
 											<TicTac estado={aparecerTic} />;

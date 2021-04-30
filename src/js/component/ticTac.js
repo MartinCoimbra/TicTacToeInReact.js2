@@ -12,7 +12,11 @@ const TicTac = props => {
 		<div className={"col-10 contenedorChico p-3 " + props.estado}>
 			<div className="row justify-content-center">
 				<div className="col-3 m-0 p-0">
-					<button className="btnTicTac w-100" onClick={cambioIcono}>
+					<button
+						className="btnTicTac w-100"
+						onClick={() => {
+							useIcono(props.icono);
+						}}>
 						{icono}
 					</button>
 				</div>
@@ -50,7 +54,8 @@ const TicTac = props => {
 };
 
 TicTac.propTypes = {
-	estado: PropTypes.string
+	estado: PropTypes.string,
+	icono: PropTypes.string
 };
 
 export default TicTac;
