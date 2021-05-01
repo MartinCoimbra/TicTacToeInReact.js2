@@ -11,8 +11,8 @@ const TicTac = props => {
 
 	let [ganador, setGanador] = useState("");
 
+	/* Verificamos si hay ganador */
 	useEffect(() => {
-		/* Verificamos si hay ganador */
 		let aux = props.tablero2;
 		if (
 			(aux[0][0] == "X" && aux[0][1] == "X" && aux[0][2] == "X") ||
@@ -143,7 +143,9 @@ const TicTac = props => {
 		/* Aca hacemos un cambio de d-none a d-block */
 		<div className={"col-10 contenedorChico p-3 " + props.estado}>
 			<h1 className={"h1 text-center " + aparecer}>
-				¡GANADOR! {ganador}
+				¡ {ganador == "X" ? props.nombre1 : props.nombre2} GANADOR!{" "}
+				{ganador}
+				{/* Ponemos una condicional que si la variable ganador es igual a X o O imprima el primero o el segundo nombre del input */}
 			</h1>
 			<div className="row justify-content-center">
 				<div className="col-3 m-0 p-0">
@@ -204,6 +206,8 @@ TicTac.propTypes = {
 	estado: PropTypes.string,
 	turnoActual: PropTypes.string,
 	turno2: PropTypes.string,
+	nombre1: PropTypes.string,
+	nombre2: PropTypes.string,
 	tablero: PropTypes.array,
 	setTablero: PropTypes.func,
 	alternarTurno: PropTypes.func,

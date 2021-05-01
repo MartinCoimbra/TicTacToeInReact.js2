@@ -1,7 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TicTac from "./ticTac.js";
 
 export function Home() {
+	const [nombre1, setNombre1] = useState("");
+	const [nombre2, setNombre2] = useState("");
+
+	function tomarNombres() {
+		let nombre1 = document.querySelector("#nombre1").value;
+		let nombre2 = document.querySelector("#nombre2").value;
+		setNombre1(nombre1);
+		setNombre2(nombre2);
+		console.log("Tus nombres son:" + nombre1 + " - " + nombre2);
+	}
+
 	const [desaparecer, setDesaparecer] = useState("d-block");
 	const desaparecerLogin = () => {
 		setDesaparecer("d-none");
@@ -34,25 +45,6 @@ export function Home() {
 		}
 	};
 
-	let cuadronum;
-	const asignaNum = cuadronum => {
-		switch (cuadronum) {
-			case 1:
-				console.log("Eres el boton 1");
-
-				break;
-			case 2:
-				console.log("Eres el boton 2");
-
-				break;
-
-			default:
-				break;
-		}
-	};
-	console.log(tablero);
-	console.log(turno);
-
 	return (
 		<div className="container">
 			<div className="container text-white mt-3 ">
@@ -70,19 +62,23 @@ export function Home() {
 								<div className="d-flex justify-content-center">
 									<input
 										type="text"
-										className="col-4 mr-2 form-control"></input>
+										className="col-4 mr-2 form-control"
+										id="nombre1"></input>
 									<input
 										type="text"
-										className="col-4 ml-2 form-control"></input>
+										className="col-4 ml-2 form-control"
+										id="nombre2"></input>
 								</div>
 								{/* Botones  al hacer click mandamos un prop con habilitado y desabilitamos este*/}
 								<button
 									className="btnTicTac ml-3 mr-2 my-3 text-warning"
+									id="btnLogin1"
 									onClick={() => {
 										{
 											asignarTurno("X");
 											desaparecerLogin();
 											aparecerTicTack();
+											tomarNombres();
 											//<TicTac estado={aparecerTic} />;
 										}
 									}}>
@@ -90,18 +86,21 @@ export function Home() {
 								</button>
 								<button
 									className="btnTicTac m my-3 text-primary"
+									id="btnLogin2"
 									onClick={() => {
 										{
 											asignarTurno("O");
 											desaparecerLogin();
 											aparecerTicTack();
-											//<TicTac estado={aparecerTic} />;
+											tomarNombres();
 										}
 									}}>
 									O
 								</button>
 							</div>
 							<TicTac
+								nombre1={nombre1}
+								nombre2={nombre2}
 								setTurno={setTurno}
 								asignarTurno={asignarTurno}
 								turno2={turno2}
