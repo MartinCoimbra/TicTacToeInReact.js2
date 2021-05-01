@@ -4,13 +4,31 @@ import ReactDOM from "react-dom";
 
 /* Aqui hacemos un cosito pero que solo aparesca con props al darle click y lo haga aparecer */
 
-function asignarNumero(num) {
-	return num;
-}
 const TicTac = props => {
 	/* Agregar case que edite cuadronum y dentro de la funcion cambiarTurno hacerle un case */
 	let cuadronum;
 
+	useEffect(() => {
+		/* Verificamos si hay ganador */
+		let aux = props.tablero2;
+
+		if (
+			(aux[0][0] == "X" && aux[0][1] == "X" && aux[0][2] == "X") ||
+			(aux[0][0] == "O" && aux[0][1] == "O" && aux[0][2] == "O") ||
+			(aux[1][0] == "X" && aux[1][1] == "X" && aux[1][2] == "X") ||
+			(aux[1][0] == "O" && aux[1][1] == "O" && aux[1][2] == "O") ||
+			(aux[2][0] == "X" && aux[2][1] == "X" && aux[2][2] == "X") ||
+			(aux[2][0] == "O" && aux[2][1] == "O" && aux[2][2] == "O") ||
+			(aux[0][0] == "O" && aux[1][1] == "O" && aux[2][2] == "O") ||
+			(aux[0][0] == "X" && aux[1][1] == "X" && aux[2][2] == "X") ||
+			(aux[0][2] == "O" && aux[1][1] == "O" && aux[2][0] == "O") ||
+			(aux[0][2] == "X" && aux[1][1] == "X" && aux[2][0] == "X")
+		) {
+			console.log("GANADOR");
+		} else {
+			console.log(">;(");
+		}
+	});
 	const cambiarTurno = () => {
 		/* Guardamos el array en aux */
 		let aux = props.tablero2;
@@ -80,18 +98,15 @@ const TicTac = props => {
 	const cambiarTurno6 = () => {
 		/* Guardamos el array en aux */
 		let aux = props.tablero2;
-		if (aux == props.tablero2) {
-			console.log(aux[3] + "Entramos bro");
+
+		if (aux[2][0] === "X" || aux[2][0] === "O") {
+			console.log("No puedes poner un valor aqui");
 		} else {
-			if (aux[2][0] === "X" || aux[2][0] === "O") {
-				console.log("No puedes poner un valor aqui");
-			} else {
-				aux[2][0] = props.turnoActual;
-				/* Guardamos el simbolo actual en la posicion del btn clickeado */
-				props.setTablero(aux);
-				/* Alternamos el turno que estamos */
-				props.alternarTurno(...props.turno2);
-			}
+			aux[2][0] = props.turnoActual;
+			/* Guardamos el simbolo actual en la posicion del btn clickeado */
+			props.setTablero(aux);
+			/* Alternamos el turno que estamos */
+			props.alternarTurno(...props.turno2);
 		}
 	};
 	const cambiarTurno7 = () => {
