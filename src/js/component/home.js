@@ -61,11 +61,13 @@ export function Home() {
 								{/* formularios */}
 								<div className="d-flex justify-content-center">
 									<input
+										placeholder="Jugador 1"
 										type="text"
 										className="col-4 mr-2 form-control"
 										id="nombre1"></input>
 									<input
 										type="text"
+										placeholder="Jugador 2"
 										className="col-4 ml-2 form-control"
 										id="nombre2"></input>
 								</div>
@@ -99,6 +101,7 @@ export function Home() {
 								</button>
 							</div>
 							<TicTac
+								setDesaparecer={setDesaparecer}
 								nombre1={nombre1}
 								nombre2={nombre2}
 								setTurno={setTurno}
@@ -109,7 +112,8 @@ export function Home() {
 								setTablero={setTablero}
 								alternarTurno={alternarTurno}
 								turnoActual={turno}
-								estado={aparecerTic}
+								aparecerTic={aparecerTic}
+								setAparecerTic={setAparecerTic}
 							/>
 						</div>
 					</div>

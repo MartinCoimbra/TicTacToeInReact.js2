@@ -8,7 +8,6 @@ const TicTac = props => {
 	/* Agregar case que edite cuadronum y dentro de la funcion cambiarTurno hacerle un case */
 	let cuadronum;
 	let [aparecer, setAparecer] = useState("d-none");
-
 	let [ganador, setGanador] = useState("");
 
 	/* Verificamos si hay ganador */
@@ -138,15 +137,43 @@ const TicTac = props => {
 			props.alternarTurno(...props.turno2);
 		}
 	};
+	const volverAJugar = () => {
+		let aux = [
+			["ㅤ", "ㅤ", "ㅤ"],
+			["ㅤ", "ㅤ", "ㅤ"],
+			["ㅤ", "ㅤ", "ㅤ"]
+		];
+		setAparecer("d-none");
+
+		props.setTablero(aux);
+	};
+	const irAlLogin = () => {
+		props.setDesaparecer("d-block");
+		props.setAparecerTic("d-none");
+		setAparecer("d-none");
+		volverAJugar();
+	};
 
 	return (
 		/* Aca hacemos un cambio de d-none a d-block */
-		<div className={"col-10 contenedorChico p-3 " + props.estado}>
-			<h1 className={"h1 text-center " + aparecer}>
-				¡ {ganador == "X" ? props.nombre1 : props.nombre2} GANADOR!{" "}
-				{ganador}
-				{/* Ponemos una condicional que si la variable ganador es igual a X o O imprima el primero o el segundo nombre del input */}
-			</h1>
+		<div className={"col-10 contenedorChico p-3 " + props.aparecerTic}>
+			<div className={aparecer}>
+				<h1 className="h1 text-center">
+					¡ {ganador == "X" ? props.nombre1 : props.nombre2} ES
+					GANAD@R! {ganador}
+					{/* Ponemos una condicional que si la variable ganador es igual a X o O imprima el primero o el segundo nombre del input */}
+				</h1>
+				<button
+					className="btn btn-danger my-2 mx-2"
+					onClick={volverAJugar}>
+					Quiero volver a jugar!
+				</button>
+				<button
+					className="btn btn-primary my-2 mx-2"
+					onClick={irAlLogin}>
+					Ir al login!
+				</button>
+			</div>
 			<div className="row justify-content-center">
 				<div className="col-3 m-0 p-0">
 					<button className="btnTicTac w-100" onClick={cambiarTurno}>
@@ -198,12 +225,16 @@ const TicTac = props => {
 					</button>
 				</div>
 			</div>
+			<button className="btn btn-warning mt-5" onClick={volverAJugar}>
+				Resetear
+			</button>
 		</div>
 	);
 };
 
 TicTac.propTypes = {
-	estado: PropTypes.string,
+	aparecerTic: PropTypes.string,
+	setDesaparecer: PropTypes.string,
 	turnoActual: PropTypes.string,
 	turno2: PropTypes.string,
 	nombre1: PropTypes.string,
@@ -212,6 +243,7 @@ TicTac.propTypes = {
 	setTablero: PropTypes.func,
 	alternarTurno: PropTypes.func,
 	setTurno: PropTypes.func,
+	setAparecerTic: PropTypes.func,
 	asignarTurno: PropTypes.func,
 	tablero2: PropTypes.array
 };
