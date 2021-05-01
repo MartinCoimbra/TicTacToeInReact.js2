@@ -102,6 +102,7 @@ export function Home() {
 								</button>
 							</div>
 							<TicTac
+								setTurno={setTurno}
 								asignarTurno={asignarTurno}
 								turno2={turno2}
 								tablero2={tablero2}

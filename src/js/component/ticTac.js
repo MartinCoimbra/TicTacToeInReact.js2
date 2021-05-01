@@ -7,26 +7,35 @@ import ReactDOM from "react-dom";
 const TicTac = props => {
 	/* Agregar case que edite cuadronum y dentro de la funcion cambiarTurno hacerle un case */
 	let cuadronum;
+	let [aparecer, setAparecer] = useState("d-none");
+
+	let [ganador, setGanador] = useState("");
 
 	useEffect(() => {
 		/* Verificamos si hay ganador */
 		let aux = props.tablero2;
-
 		if (
 			(aux[0][0] == "X" && aux[0][1] == "X" && aux[0][2] == "X") ||
-			(aux[0][0] == "O" && aux[0][1] == "O" && aux[0][2] == "O") ||
 			(aux[1][0] == "X" && aux[1][1] == "X" && aux[1][2] == "X") ||
-			(aux[1][0] == "O" && aux[1][1] == "O" && aux[1][2] == "O") ||
 			(aux[2][0] == "X" && aux[2][1] == "X" && aux[2][2] == "X") ||
-			(aux[2][0] == "O" && aux[2][1] == "O" && aux[2][2] == "O") ||
-			(aux[0][0] == "O" && aux[1][1] == "O" && aux[2][2] == "O") ||
 			(aux[0][0] == "X" && aux[1][1] == "X" && aux[2][2] == "X") ||
-			(aux[0][2] == "O" && aux[1][1] == "O" && aux[2][0] == "O") ||
 			(aux[0][2] == "X" && aux[1][1] == "X" && aux[2][0] == "X")
 		) {
+			setAparecer("d-block");
 			console.log("GANADOR");
+			setGanador("X");
+		} else if (
+			(aux[0][0] == "O" && aux[0][1] == "O" && aux[0][2] == "O") ||
+			(aux[1][0] == "O" && aux[1][1] == "O" && aux[1][2] == "O") ||
+			(aux[2][0] == "O" && aux[2][1] == "O" && aux[2][2] == "O") ||
+			(aux[0][0] == "O" && aux[1][1] == "O" && aux[2][2] == "O") ||
+			(aux[0][2] == "O" && aux[1][1] == "O" && aux[2][0] == "O")
+		) {
+			setAparecer("d-block");
+			console.log("GANADOR");
+			setGanador("O");
 		} else {
-			console.log(">;(");
+			console.log("Aun no hay ganador");
 		}
 	});
 	const cambiarTurno = () => {
@@ -133,6 +142,9 @@ const TicTac = props => {
 	return (
 		/* Aca hacemos un cambio de d-none a d-block */
 		<div className={"col-10 contenedorChico p-3 " + props.estado}>
+			<h1 className={"h1 text-center " + aparecer}>
+				¡GANADOR! {ganador}
+			</h1>
 			<div className="row justify-content-center">
 				<div className="col-3 m-0 p-0">
 					<button className="btnTicTac w-100" onClick={cambiarTurno}>
@@ -195,6 +207,7 @@ TicTac.propTypes = {
 	tablero: PropTypes.array,
 	setTablero: PropTypes.func,
 	alternarTurno: PropTypes.func,
+	setTurno: PropTypes.func,
 	asignarTurno: PropTypes.func,
 	tablero2: PropTypes.array
 };
