@@ -16,12 +16,15 @@ export function Home() {
 	const asignarTurno = XO => {
 		setTurno(XO);
 	};
+	const turno2 = [...turno];
 
 	const [tablero, setTablero] = useState([
 		["ㅤ", "ㅤ", "ㅤ"],
 		["ㅤ", "ㅤ", "ㅤ"],
 		["ㅤ", "ㅤ", "ㅤ"]
 	]);
+
+	const tablero2 = [...tablero];
 
 	const alternarTurno = () => {
 		if (turno === "X") {
@@ -32,6 +35,7 @@ export function Home() {
 	};
 
 	console.log(tablero);
+	console.log(turno);
 
 	return (
 		<div className="container">
@@ -82,6 +86,9 @@ export function Home() {
 								</button>
 							</div>
 							<TicTac
+								asignarTurno={asignarTurno}
+								turno2={turno2}
+								tablero2={tablero2}
 								tablero={tablero}
 								setTablero={setTablero}
 								alternarTurno={alternarTurno}
