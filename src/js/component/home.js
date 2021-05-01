@@ -34,6 +34,22 @@ export function Home() {
 		}
 	};
 
+	let cuadronum;
+	const asignaNum = cuadronum => {
+		switch (cuadronum) {
+			case 1:
+				console.log("Eres el boton 1");
+
+				break;
+			case 2:
+				console.log("Eres el boton 2");
+
+				break;
+
+			default:
+				break;
+		}
+	};
 	console.log(tablero);
 	console.log(turno);
 
