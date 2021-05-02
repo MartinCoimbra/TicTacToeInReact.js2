@@ -47,9 +47,9 @@ export function Home() {
 
 	return (
 		<div className="container">
-			<div className="container text-white mt-3 ">
+			<div className="container text-white mt-1 ">
 				<div className="row justify-content-center text-center">
-					<div className="col-8 contenedorCentro my-5 p-5">
+					<div className="col-8 contenedorCentro mt-2 mb-5 p-2">
 						<h1>TicTacToe in React.js</h1>
 						<h2>Es turno de {turno}</h2>
 						<div className="row justify-content-center">
@@ -57,7 +57,7 @@ export function Home() {
 								className={
 									"col-10 contenedorChico p-3 " + desaparecer
 								}>
-								<p>¿Como se llaman?</p>
+								<p className="h3">¿Como se llaman?</p>
 								{/* formularios */}
 								<div className="d-flex justify-content-center">
 									<input
@@ -72,8 +72,9 @@ export function Home() {
 										id="nombre2"></input>
 								</div>
 								{/* Botones  al hacer click mandamos un prop con habilitado y desabilitamos este*/}
+								<p className="my-3 h4">¿Quien empieza?</p>
 								<button
-									className="btnTicTac ml-3 mr-2 my-3 text-warning"
+									className="btnTicTac ml-3 mr-2 mb-3 text-warning"
 									id="btnLogin1"
 									onClick={() => {
 										{

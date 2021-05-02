@@ -18,7 +18,10 @@ const TicTac = props => {
 			(aux[1][0] == "X" && aux[1][1] == "X" && aux[1][2] == "X") ||
 			(aux[2][0] == "X" && aux[2][1] == "X" && aux[2][2] == "X") ||
 			(aux[0][0] == "X" && aux[1][1] == "X" && aux[2][2] == "X") ||
-			(aux[0][2] == "X" && aux[1][1] == "X" && aux[2][0] == "X")
+			(aux[0][2] == "X" && aux[1][1] == "X" && aux[2][0] == "X") ||
+			(aux[0][0] == "X" && aux[1][0] == "X" && aux[2][0] == "X") ||
+			(aux[0][1] == "X" && aux[1][1] == "X" && aux[2][1] == "X") ||
+			(aux[0][2] == "X" && aux[1][2] == "X" && aux[2][2] == "X")
 		) {
 			setAparecer("d-block");
 			console.log("GANADOR");
@@ -28,7 +31,10 @@ const TicTac = props => {
 			(aux[1][0] == "O" && aux[1][1] == "O" && aux[1][2] == "O") ||
 			(aux[2][0] == "O" && aux[2][1] == "O" && aux[2][2] == "O") ||
 			(aux[0][0] == "O" && aux[1][1] == "O" && aux[2][2] == "O") ||
-			(aux[0][2] == "O" && aux[1][1] == "O" && aux[2][0] == "O")
+			(aux[0][2] == "O" && aux[1][1] == "O" && aux[2][0] == "O") ||
+			(aux[0][0] == "O" && aux[1][0] == "O" && aux[2][0] == "O") ||
+			(aux[0][1] == "O" && aux[1][1] == "O" && aux[2][1] == "O") ||
+			(aux[0][2] == "O" && aux[1][2] == "O" && aux[2][2] == "O")
 		) {
 			setAparecer("d-block");
 			console.log("GANADOR");
@@ -176,24 +182,32 @@ const TicTac = props => {
 			</div>
 			<div className="row justify-content-center">
 				<div className="col-3 m-0 p-0">
-					<button className="btnTicTac w-100" onClick={cambiarTurno}>
+					<button
+						className="btnTicTac w-100 border-top-0 border-left-0"
+						onClick={cambiarTurno}>
 						{props.tablero[0][0]}
 					</button>
 				</div>
 				<div className="col-3 m-0 p-0">
-					<button className="btnTicTac w-100" onClick={cambiarTurno1}>
+					<button
+						className="btnTicTac w-100 border-top-0"
+						onClick={cambiarTurno1}>
 						{props.tablero[0][1]}
 					</button>
 				</div>
 				<div className="col-3 m-0 p-0">
-					<button className="btnTicTac w-100" onClick={cambiarTurno2}>
+					<button
+						className="btnTicTac w-100 border-top-0 border-right-0"
+						onClick={cambiarTurno2}>
 						{props.tablero[0][2]}
 					</button>
 				</div>
 			</div>
 			<div className="row justify-content-center">
 				<div className="col-3 m-0 p-0">
-					<button className="btnTicTac w-100" onClick={cambiarTurno3}>
+					<button
+						className="btnTicTac w-100 border-left-0"
+						onClick={cambiarTurno3}>
 						{props.tablero[1][0]}
 					</button>
 				</div>
@@ -203,24 +217,32 @@ const TicTac = props => {
 					</button>
 				</div>
 				<div className="col-3 m-0 p-0">
-					<button className="btnTicTac w-100" onClick={cambiarTurno5}>
+					<button
+						className="btnTicTac w-100 border-right-0"
+						onClick={cambiarTurno5}>
 						{props.tablero[1][2]}
 					</button>
 				</div>
 			</div>
 			<div className="row justify-content-center">
 				<div className="col-3 m-0 p-0">
-					<button className="btnTicTac w-100" onClick={cambiarTurno6}>
+					<button
+						className="btnTicTac w-100 border-left-0 border-bottom-0"
+						onClick={cambiarTurno6}>
 						{props.tablero[2][0]}
 					</button>
 				</div>
 				<div className="col-3 m-0 p-0">
-					<button className="btnTicTac w-100" onClick={cambiarTurno7}>
+					<button
+						className="btnTicTac w-100 border-bottom-0"
+						onClick={cambiarTurno7}>
 						{props.tablero[2][1]}
 					</button>
 				</div>
 				<div className="col-3 m-0 p-0">
-					<button className="btnTicTac w-100" onClick={cambiarTurno8}>
+					<button
+						className="btnTicTac w-100 border-bottom-0 border-right-0"
+						onClick={cambiarTurno8}>
 						{props.tablero[2][2]}
 					</button>
 				</div>

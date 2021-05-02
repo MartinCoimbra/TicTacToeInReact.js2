@@ -11,17 +11,18 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
-
-.contenedorCentro{
-    background: #5B5652;
-}
-.contenedorChico{
+body{
     background: #48423B;
 }
+.contenedorCentro,.contenedorChico{
+    background: #5B5652;
+} 
 
 .btnTicTac{
     background: #3E3732;
     padding: 0 40px;
-    border: 1px solid #685c53;
+    font-weight: bold;
+    border: 0.5px solid #aca8a8;
     font-size: 80px;
+    color: #5B5652;
 }
